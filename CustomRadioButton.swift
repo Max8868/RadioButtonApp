@@ -87,15 +87,11 @@ class CustomRadioButton: UIView {
     }
     
     func clearState(tag: Int, totalItens: [CustomRadioButton]) {
-        for item in totalItens {
-            if !(item.radioButton.tag == tag) {
-                item.radioButton.tintColor = radioButton.isSelected ? .red : secondaryColor
-                item.radioButtonLabel.textColor = radioButton.isSelected ? .red : secondaryColor
-                item.radioButton.isSelected = !radioButton.isSelected
-            } else {
-                item.radioButton.isSelected = false
-                item.radioButton.tintColor =  .red
-                item.radioButtonLabel.textColor =  .red
+        for item in 0..<totalItens.count{
+            if !(totalItens[item].radioButton.tag == tag) {
+                totalItens[item].radioButton.isSelected = false
+                totalItens[item].radioButton.tintColor =  .red
+                totalItens[item].radioButtonLabel.textColor =  .red
             }
         }
     }
@@ -114,9 +110,9 @@ class CustomStackRadioButton: UIView {
     public func setup(with radioButton: [CustomRadioButton]) {
         var tag = 0
         for button in radioButton {
-            tag += 1
             button.radioButton.tag = tag
             stack.addArrangedSubview(button)
+            tag += 1
         }
         setupStack()
     }

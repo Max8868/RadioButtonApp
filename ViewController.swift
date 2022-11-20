@@ -87,6 +87,24 @@ class ViewController: UIViewController {
     }
     
     private func action(_ tag: Int) {
+
+        switch tag {
+        case 0:
+            view.backgroundColor = .black
+        case 1:
+            view.backgroundColor = .systemGray
+        case 2:
+            view.backgroundColor = .systemMint
+        case 3:
+            view.backgroundColor = .systemTeal
+        case 4:
+            view.backgroundColor = .systemPink
+        case 5:
+            view.backgroundColor = .white
+        default:
+            view.backgroundColor = .white
+        }
+        
         for itemArray in array {
             itemArray.clearState(tag: tag, totalItens: array)
         }
